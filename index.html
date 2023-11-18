@@ -1,0 +1,223 @@
+<!doctype html>
+<html>
+<head>
+
+	<title>JTBP</title>
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1">
+	<link href="css/main.css" media="screen" rel="stylesheet" type="text/css"/>
+	<link href="css/index.css" media="screen" rel="stylesheet" type="text/css"/>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:400,700' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+	<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			CommonHTML: { linebreaks: { automatic: true } },
+			"HTML-CSS": { linebreaks: { automatic: true } },
+				 SVG: { linebreaks: { automatic: true } }
+			});
+	</script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+	</script>
+	
+</head>
+
+<body>
+
+<div class="menu-container noselect">
+	<div class="menu">
+		<table class="menu-table">
+			<tr>
+				<td>
+					<div class="logo">
+						<a href="javascript:void(0)">JTBP</a>
+					</div>
+				</td>
+				<td>
+					<div class="menu-items">
+						<a class="menu-highlight">Overview</a>
+						<a href="https://github.com/chnleixu">GitHub</a>
+					</div>
+				</td>
+			</tr>
+		</table>
+	</div>
+</div>
+
+<div class="content-container">
+	<div class="content">
+		<table class="content-table">
+		      <h1 style="text-align:center; margin-top:60px; font-weight: bold; font-size: 35px;">
+				Joint Target and Background Temporal Propagation for Aerial Tracking </h1>
+	        
+				<p style="text-align:center; margin-bottom:15px; margin-top:20px; font-size: 18px;">
+					<a href="https://github.com/chnleixu" style="color: #0088CC">Lei Xu<script type="math/tex">^{a}</script>, </a>
+					Wensheng Cheng<script type="math/tex">^b</script>,
+					<a href="https://github.com/Chasel-Tsui" style="color: #0088CC">Chang Xu<script type="math/tex">^{a}</script>, </a>
+                    
+					<a href="http://www.captain-whu.com/yangwen_En.html" style="color: #0088CC">Wen Yang<script type="math/tex">^{a,**}</script> </a> <br> 
+					<!-- <a href="http://www.captain-whu.com/xia_En.html" style="color: #0088CC">Gui-Song Xia<script type="math/tex">^{c}</script>, </a> <br> -->
+					<!-- <a href="http://www.dsi.unive.it/~pelillo/" style="color: #0088CC">Marcello Pelillo<script type="math/tex">^3</script></a> <br> -->
+                     
+					<a target="_blank" href="https://dsp.whu.edu.cn/" style="color: #0088CC; font-style: italic"><script type="math/tex">^a</script>School of Electronic Information, Wuhan University, Wuhan, China</a><br>
+                    <a target="_blank" href="" style="color: #0088CC; font-style: italic"><script type="math/tex">^b</script>Department of Computer Science, Stony Brook University, NY 11794, United States</a><br>
+					<!-- <a target="_blank" href="http://captain.whu.edu.cn/" style="color: #0088CC; font-style: italic"><script type="math/tex">^c</script>School of Computer Science and the State Key Lab. LIESMARS, Wuhan University, Wuhan, China</a>  <br> -->
+
+				</p>	 
+				<p style="text-align:center; margin-bottom:15px; margin-top:20px; font-size: 18px;"> 
+					<!-- <a href="" style="color: hsl(17, 100%, 40%)"> [Paper] -->
+					</a>
+					<!-- <a href="https://github.com/chnleixu" style="color: hsl(17, 100%, 40%)"> [Data and Code] -->
+					</a>
+				</p>
+		
+			
+			<tr>
+				<!-- <td colspan="1"> -->
+					<h2 class="add-top-margin">Abstract</h2>
+					<hr>
+				<!-- </td> -->
+			</tr>
+			<tr>
+					<!-- <td colspan="1"> -->
+
+				<p class="text" style="text-align:justify;">
+					Tracking objects from aerial imagery is significant in numerous remote sensing-based applications, including environmental monitoring, security surveillance, and search \& rescue. However, tracking specific targets in aerial images is still challenging due to target appearance variation and similar object distraction. To address these challenges, we propose a joint target and background temporal propagation approach for aerial tracking, dubbed JTBP. JTBP leverages the temporal coherence present in video sequences and consists of two modules: the target temporal propagation (TTP) module and the background temporal propagation (BTP) module. The former adjusts the template by mining target-specific information from the temporal domain. It utilizes a key-value mechanism to weigh the channels of the template based on target-specific features, allowing the template to adapt to variations in target appearance. The latter identifies background objects from the temporal domain and effectively distinguishes similar objects by leveraging the temporal coherence of objects in the background. On four benchmarks, the new tracker JTBP shows consistent improvements over baselines and achieves leading performance compared to advanced trackers. Notably, our approach outperforms the state-of-the-art method by 2.8 points in terms of success rate on UAV112Track_L dataset.
+				</p>
+					<!-- </td> -->
+			</tr>
+
+			<tr>
+				<!-- <td colspan="1"> -->
+					<h2 class="add-top-margin">Introduction</h2>
+					<hr>
+				<!-- </td> -->
+			</tr>
+
+			<tr>
+				<p class="text" style="text-align:justify;">
+
+					In this work, we propose a Joint Target and Background Temporal Propagation approach for tracking objects from aerial imagery, termed as JTBP. As illustrated in Fig. 1, JTBP consists of two modules: the target temporal propagation module (TTP) and the background temporal propagation (BTP) module. The TTP module is responsible for mining target-specific information from the temporal domain. It includes a target temporal propagation block that utilizes a key-value mechanism to weigh the channels of the template based on target-specific features. This enables the template to adapt to variations in target appearance commonly observed in remote sensing images. The BTP module focuses on extracting background information from the temporal domain. It incorporates a background temporal propagation block that leverages the prior knowledge of object positions and shapes to distinguish similar objects in the background. By matching the target with the background objects based on their spatial and shape priors, the background propagation module effectively suppresses the response of background distractor objects. 
+					To verify the efficacy of our suggested approach and modules, we conduct extensive experiments on four publicly available datasets, comparing them against existing trackers. The experimental results demonstrate that our target and background propagation mechanisms effectively address the challenges of target appearance variation and background object distraction. Moreover, compared to current advanced trackers, our JTBP achieves leading performance and exhibits stable performance improvements compared to the baseline. Overall, our proposed JTBP approach, with its target and background propagation modules, provides an effective solution for robust object tracking in aerial imagery, surpassing existing methods and achieving leading performance.
+
+          
+        
+				</p>
+			</tr>
+
+			<tr>
+				<td>
+					<div>
+					<img class="center" src="./pdf/intro-overview.png" width="660" /> <br>
+					<p class="image-caption">
+						Figure 1. Overall framework of our JTBP. It decouples the temporal cues into the target and background cues in the temporal domain. It tackles the challenge of target appearance variation and similar object distraction from two aspects: (1) propagating target information in the temporal domain to adapt the template to the change of the target appearance variations (2) leveraging background priors in the temporal domain to differentiate the tracked target from the similar background objects.
+					</p>				
+					</div>
+				</td>
+			</tr>
+
+		
+
+			<tr>
+				<td>
+				<p class="text" style="text-align:justify;">
+
+					In summary, the contributions of this paper are listed as follows:
+					<ul style="font-weight:normal; text-align:justify;">
+							<li> We present a joint target and background propagation framework, which hierarchically exploits target and background temporal information to simultaneously address the challenges of target appearance variation and similar object distraction. </li>
+							<li> We propose a target temporal propagation module, which adaptively adjusts the template by weighting the target-specific feature channels, effectively handling variations in the target’s appearance.</li>
+							<li> 
+								We propose a background temporal propagation module, which identifies background distractors close to the target in the temporal domain, effectively suppressing the response of distractors.
+							</li>	
+							<li> 
+								The proposed JTBP achieves leading performance on four public datasets, demonstrating the effectiveness of our approach.
+							</li>							
+					</ul>
+
+				</p>
+				</td>
+			</tr>
+
+
+
+
+
+
+
+	
+
+			<tr>
+				<td>
+						<h2 class="add-top-margin">Experimental Results</h2>
+						<hr>
+				</td>
+			</tr>
+
+			<tr>
+					<td>
+							<h3 class="add-top-margin">A Comparison of Different Methods on DTB70</h3>
+							
+					</td>
+			</tr>
+					
+			<tr>
+				<td>
+					<div>
+					<img class="center" src="pdf/DTB70.png" width="1000" /> <br>
+					<p class="image-caption">
+						Figure 2. Qualitative comparison on the DTB70 dataset. From the top to bottom are the tracking results on the BMX4, Horse1, RcCar7, and Soccer2 sequences of the DTB70 datasets. The target regions are enlarged in the bottom right, while the green squares denote the ground truth.
+					</p>				
+					</div>
+				</td>
+			</tr>
+			<tr>
+				<td>
+						<h3 class="add-top-margin">A Comparison of Different Methods on UAV123@10fps</h3>
+						
+				</td>
+		</tr>
+				
+		<tr>
+			<td>
+				<div>
+				<img class="center" src="pdf/UAV10.png" width="1000" /> <br>
+				<p class="image-caption">
+					Figure 3. Qualitative comparison on the UAV123@10fps dataset. From the top to bottom are the tracking results on the Boat9, Car16, Person3, and Wakeboard3 sequences of the UAV123@10fps dataset.The target regions are enlarged in the bottom right, while the green squares denote the ground truth.
+				</p>				
+				</div>
+			</td>
+		</tr>
+	
+					<td>
+							<h2 class="add-top-margin">Citation</h2>
+							<hr>
+							<ol style="padding-inline-start:20px;">
+						<li>
+							<code>&lt;
+								@article{a3track,
+									title={A3Track: Achieving Precise Target Tracking in Aerial Images with Receptive Field Alignment},
+									author={Xu, Lei and Xu, Chang, Wensheng Cheng, Yang, Wen and Xia, Gui-Song},
+									journal={},
+									volume={},
+									pages={},
+									year={},
+									publisher={}
+								}
+								&gt;</code> 
+						</li>
+							
+					</td>
+				</tr>
+				
+					
+			<br><br>
+		 </table>
+		 			
+		
+	<div class="footer">
+		<p class="block">&copy; 2023 by Xu Lei at SPL, EIS, WHU</p>
+	</div>
+
+	</div>
+</div>
+</body>
+</html>
